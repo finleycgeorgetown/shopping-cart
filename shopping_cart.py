@@ -33,15 +33,17 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 total_price = 0
 grocery_ids = []
-#
+valid_inputs = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
 #Info Capture/input
 while True:
     grocery_id = input("Please input a product identifier id number: ") #This is a string input
     
     if grocery_id == "END":
         break
-    else:  
+    elif grocery_id in valid_inputs:
         grocery_ids.append(grocery_id)
+    else:
+        print("Please enter a valid input.")
 #Info display/output
 print(x.strftime("%Y-%m-%d"))
 print("Your Cart: ")

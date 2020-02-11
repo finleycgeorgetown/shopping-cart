@@ -36,5 +36,6 @@ From within the virtual environment, demonstrate your ability to run the Python 
 python shopping_cart.py
 ```
 This will run the program.
+
 # Output
-By entering the product ids that are listed in the attatched products.txt, the application will store your inputs and then create a final receipt of your purchase.
+By entering the product ids that are listed in the attatched products.txt, the application will store your valid inputs and then create a final receipt of your purchase. This will include a subtotal and a tax.
