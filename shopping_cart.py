@@ -1,7 +1,10 @@
-# shopping_cart.py
-
 #from pprint import pprint
 
+print("------------------")
+print("WELCOME TO WEGMANS")
+print("------------------")
+print(" ")
+print("To checkout, enter the numeric id's of your products and type 'DONE' when finished")
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -24,17 +27,34 @@ products = [
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
-
+total_price = 0
+grocery_ids = []
 #
 #Info Capture/input
-grocery_id = int(input("Please input a product identifier ")) #This is a string input
-matching_products = [p for p in products if p["id"] == grocery_id]
-matching_product = matching_products[0]
-print(matching_product)
-print(type(matching_product))
+while True:
+    grocery_id = input("Please input a product identifier id number: ") #This is a string input
+    
+    if grocery_id == "DONE":
+        break
+    else:  
+        grocery_ids.append(grocery_id)
 #Info display/output
 
-print(products)
+print("Your Cart: ")
+
+for grocery_id in grocery_ids:
+        matching_products = [p for p in products if str(p["id"]) == str(grocery_id)]
+        matching_product = matching_products[0]
+        total_price = total_price + matching_product["price"]  
+        print("Purchased Item: " + matching_product["name"] + " $" + str(matching_product["price"]))
+
+
+print("TOTAL PRICE: $" +str(total_price))
+print("SALES TAX: $" +str(.0875 * total_price))
+print("AMOUNT OWED: $" +str(1.0875 * total_price)
+
+
+#print(products)
 # pprint(products)
 
 # TODO: write some Python code here to produce the desired outputss
@@ -43,8 +63,6 @@ print(products)
 
 
 
-
-#A grocery store name of your choice
 #A grocery store phone number and/or website URL and/or address of choice
 #The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
 #The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
