@@ -53,12 +53,13 @@ for grocery_id in grocery_ids:
         total_price = total_price + matching_product["price"]  
         print("Purchased Item: " + matching_product["name"] + " $" + str(matching_product["price"]))
 
-#Gives 100 reward points for every dolar spent
-
+#Gives 10 reward points for every dolar spent
+rewards_points = ((round(total_price) * 10))
 print("------------------------------------------------")
-print("SUBTOTAL: $" + str(total_price))
+print("SUBTOTAL: $" + str(round(total_price, 2)))
 print("SALES TAX: $" + str(round(total_price * 0.0875, 2)))
 print("AMOUNT OWED: $" + str(round(total_price * 1.0875, 2)))
+print("You have earned " + str(rewards_points) + " rewards points today.")
 print("------------------------------------------------")
 print("Thank you for Shopping at Wegmans, we can't wait")
 print("to see you again!")
