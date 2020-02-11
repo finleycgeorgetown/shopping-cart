@@ -2,7 +2,7 @@
 import datetime
 
 x = datetime.datetime.now()
-
+#computer stamp of time
 print(str(x))
 print("------------------")
 print("WELCOME TO WEGMANS")
@@ -34,7 +34,7 @@ products = [
 total_price = 0
 grocery_ids = []
 valid_inputs = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
-#Info Capture/input
+#Info Capture/input of the grocery id's, elif statement to check if valid entry from list of permitted entries
 while True:
     grocery_id = input("Please input a product identifier id number: ") #This is a string input
     
@@ -44,7 +44,8 @@ while True:
         grocery_ids.append(grocery_id)
     else:
         print("Please enter a valid input.")
-#Info display/output
+#Info display/outpu, displays dates and the individual products selected
+print(" ")
 print(x.strftime("%Y-%m-%d"))
 print("Your Cart: ")
 for grocery_id in grocery_ids:
@@ -55,12 +56,15 @@ for grocery_id in grocery_ids:
 
 #Gives 10 reward points for every dolar spent
 rewards_points = ((round(total_price) * 10))
+#receipt below
+print(" ")
 print("------------------------------------------------")
 print("SUBTOTAL: $" + str(round(total_price, 2)))
 print("SALES TAX: $" + str(round(total_price * 0.0875, 2)))
 print("AMOUNT OWED: $" + str(round(total_price * 1.0875, 2)))
 print("You have earned " + str(rewards_points) + " rewards points today.")
 print("------------------------------------------------")
+print(" ")
 print("Thank you for Shopping at Wegmans, we can't wait")
 print("to see you again!")
 print("For customer service inquiry, please contact us")
@@ -68,6 +72,3 @@ print("at our customer support line: 1-800-934-6267")
 
 #print(products)
 # pprint(products)
-
-
-#The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
