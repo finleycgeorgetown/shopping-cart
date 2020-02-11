@@ -1,10 +1,14 @@
 #from pprint import pprint
+import datetime
 
+x = datetime.datetime.now()
+
+print(str(x))
 print("------------------")
 print("WELCOME TO WEGMANS")
 print("------------------")
 print(" ")
-print("To checkout, enter the numeric id's of your products and type 'DONE' when finished")
+print("To checkout, enter the numeric id's of your products and type 'END' when finished")
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -34,39 +38,33 @@ grocery_ids = []
 while True:
     grocery_id = input("Please input a product identifier id number: ") #This is a string input
     
-    if grocery_id == "DONE":
+    if grocery_id == "END":
         break
     else:  
         grocery_ids.append(grocery_id)
 #Info display/output
-
+print(x.strftime("%Y-%m-%d"))
 print("Your Cart: ")
-
 for grocery_id in grocery_ids:
         matching_products = [p for p in products if str(p["id"]) == str(grocery_id)]
         matching_product = matching_products[0]
         total_price = total_price + matching_product["price"]  
         print("Purchased Item: " + matching_product["name"] + " $" + str(matching_product["price"]))
 
+#Gives 100 reward points for every dolar spent
 
-print("TOTAL PRICE: $" +str(total_price))
-print("SALES TAX: $" +str(.0875 * total_price))
-print("AMOUNT OWED: $" +str(1.0875 * total_price)
-
+print("------------------------------------------------")
+print("SUBTOTAL: $" + str(total_price))
+print("SALES TAX: $" + str(round(total_price * 0.0875, 2)))
+print("AMOUNT OWED: $" + str(round(total_price * 1.0875, 2)))
+print("------------------------------------------------")
+print("Thank you for Shopping at Wegmans, we can't wait")
+print("to see you again!")
+print("For customer service inquiry, please contact us")
+print("at our customer support line: 1-800-934-6267")
 
 #print(products)
 # pprint(products)
 
-# TODO: write some Python code here to produce the desired outputss
 
-
-
-
-
-#A grocery store phone number and/or website URL and/or address of choice
 #The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
-#The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
-#The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
-#The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
-#The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-#A friendly message thanking the customer and/or encouraging the customer to shop again
