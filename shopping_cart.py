@@ -27,11 +27,11 @@ products = [
 
 #
 #Info Capture/input
-grocery_id = input("Please input a product identifier ")
-print(grocery_id)
-print(type(grocery_id))
-
-
+grocery_id = int(input("Please input a product identifier ")) #This is a string input
+matching_products = [p for p in products if p["id"] == grocery_id]
+matching_product = matching_products[0]
+print(matching_product)
+print(type(matching_product))
 #Info display/output
 
 print(products)
