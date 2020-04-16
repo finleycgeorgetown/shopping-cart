@@ -1,6 +1,10 @@
 #from pprint import pprint
 import datetime
 
+def to_usd(price_example):
+    return "${0:,.2f}".format(price_example)
+
+
 x = datetime.datetime.now()
 #computer stamp of time
 print(str(x))
@@ -59,9 +63,9 @@ rewards_points = ((round(total_price) * 10))
 #receipt below
 print(" ")
 print("------------------------------------------------")
-print("SUBTOTAL: $" + str(round(total_price, 2)))
-print("SALES TAX: $" + str(round(total_price * 0.0875, 2)))
-print("AMOUNT OWED: $" + str(round(total_price * 1.0875, 2)))
+print("SUBTOTAL: $" + to_usd(total_price))
+print("SALES TAX: $" + to_usd(total_price * 0.0875))
+print("AMOUNT OWED: $" + to_usd(total_price * 1.0875))
 print("You have earned " + str(rewards_points) + " rewards points today.")
 print("------------------------------------------------")
 print(" ")
